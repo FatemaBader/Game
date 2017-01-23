@@ -1,18 +1,14 @@
 
-PImage bg;
-float x=0;
-float y=0;
+Image image;
+
 void setup() {
-  size(710, 397);
-  bg = loadImage("Capture.jpg");
+  size(878, 482);
+  image= new Image(0,0);
 }
 
 void draw() {
   //background(bg);
-  image(bg,x,y);
-  x--;
-  if (x< -710)
-  {
-    x=710;
-  }
+  
+  image.display();
+  image.move();
 }
