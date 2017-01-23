@@ -20,18 +20,34 @@ class User
      if (keyCode == UP)
      {
        imgy--;
+       if (imgy<0)
+       {
+         imgy=0;
+       }
      }
-          if (keyCode == DOWN)
+     if (keyCode == DOWN)
      {
        imgy++;
+       if (imgy>435)
+       {
+         imgy=434;
+       }
      }
-          if (keyCode == LEFT)
+     if (keyCode == LEFT)
      {
        imgx--;
+       if (imgx<0)
+       {
+         imgx=0;
+       }
      }
-          if (keyCode == RIGHT)
+     if (keyCode == RIGHT)
      {
        imgx++;
+       if (imgx==785)
+       {
+         imgx=784;
+       }
      }
     }
 }
