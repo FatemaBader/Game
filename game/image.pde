@@ -23,7 +23,7 @@ class Image
  {
   imgx--;
   imgx2--;
-    if (imgx==-877)
+    if (imgx == -877 )
     {
       imgx=878;
       imgx--;
