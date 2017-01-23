@@ -1,26 +1,18 @@
 
 PImage bg;
-int y;
-int x;
-
+float x=0;
+float y=0;
 void setup() {
   size(710, 397);
   bg = loadImage("Capture.jpg");
 }
 
 void draw() {
-  background(bg);
-  
-  stroke(226, 204, 0);
-  strokeWeight(3);
-  line(0, y, width, y);
-  line(x,0,x,height);
+  //background(bg);
+  image(bg,x,y);
   x--;
-  y++;
-  if (y > height) {
-    y = 0; 
-  }
-  if(x<width){
-    x=width;
+  if (x< -710)
+  {
+    x=710;
   }
 }
