@@ -1,11 +1,18 @@
 
 Image image;
 User user;
+Lazor lazor;
+//Lazor[] lazors= new Lazor[100];
 
 void setup() {
   size(878, 482);
   image= new Image(0,0);
   user=new User(50,300);
+  lazor=new Lazor(900,40);
+ /*for (int i=0;i<100;i++)
+ {
+   lazors[i]=new Lazor(900,40);
+ }*/
 }
 
 void draw() {
@@ -16,4 +23,7 @@ void draw() {
   
   user.display();
   user.keyPressed();
+  
+  lazor.display();
+  lazor.shoot();
 }
