@@ -8,7 +8,7 @@ class User
  {
    this.imgx=x;
    this.imgy=y;
-    craft = loadImage("user.JPG");
+    craft = loadImage("user.gif");
  }
  
  void display()

@@ -11,8 +11,11 @@ class Lazor
  
  void display()
  {
-   fill(0);
-   ellipse(x,y,30,30);
+   stroke(#14D836);
+   strokeWeight(2);
+   
+   rect(x, y, 70, 5, 7);
+   
  }
  void shoot()
  {
