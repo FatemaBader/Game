@@ -6,7 +6,7 @@ class Image
   float imgx2=878;
   float imgy2=0;
   
- Image(float x,float y)
+ Image(float x,float y) //0,0
  {
    this.imgx=x;
    this.imgy=y;
@@ -27,6 +27,11 @@ class Image
     {
       imgx=878;
       imgx--;
+    }
+    if( imgx2 == -877)
+    {
+      imgx2=878;
+      imgx2--;
     }
   }
 }
