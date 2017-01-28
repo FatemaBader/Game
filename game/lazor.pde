@@ -1,12 +1,14 @@
 class Lazor
 {
   float x;
+  float speed;
   float y;
   
- Lazor(float x1,float y1) //900 and 40
+ Lazor(float x1,float y1,float speed) //900 and 40
  {
    this.x=x1;
    this.y=y1;
+   this.speed=speed;
  }
  
  void display()
@@ -19,6 +21,6 @@ class Lazor
  }
  void shoot()
  {
-   x--;
+   x-=speed;
  }
 }
