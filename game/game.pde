@@ -7,9 +7,11 @@ import org.jbox2d.common.*;
 import org.jbox2d.dynamics.*;
 import org.jbox2d.dynamics.contacts.*;
 
+PFont font1;
 // A reference to our box2d world
 Box2DProcessing box2d;
 
+Clock clock;
 Image image;
 User user;
 Lazor lazor;
@@ -17,7 +19,7 @@ Lazor[] lazors= new Lazor[300];
 
 void setup() {
   size(878, 482);
-  
+  font1= loadFont("AgencyFB-Bold-48.vlw");
   // Initialize box2d physics and create the world
   box2d = new Box2DProcessing(this);
   box2d.createWorld();
@@ -25,6 +27,7 @@ void setup() {
   // Turn on collision listening!
   box2d.listenForCollisions();
   
+  clock=new Clock(15,30);
   image= new Image(0,0);  //so it starts at 0,0 pixels
   user=new User(50,300);
   lazor=new Lazor(900,40,5);
@@ -36,9 +39,11 @@ void setup() {
 
 void draw() {
   //background(bg);
-  
+  textFont(font1, 30);
+  fill(255);
   // We must always step through time!
   box2d.step();
+  
   
   image.display();
   image.move();
@@ -53,6 +58,7 @@ void draw() {
     lazors[i].display();
     lazors[i].shoot();
   }
+  clock.time();
 }
 
 // Collision event functions!
