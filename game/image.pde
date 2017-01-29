@@ -17,7 +17,7 @@ class Image
  void display()
  {
    image(bg,imgx,imgy);
-  image(bg2,imgx2,imgy2);
+    image(bg2,imgx2,imgy2);
  }
  void move()
  {

@@ -1,3 +1,14 @@
+import shiffman.box2d.*;
+import org.jbox2d.common.*;
+import org.jbox2d.dynamics.joints.*;
+import org.jbox2d.collision.shapes.*;
+import org.jbox2d.collision.shapes.Shape;
+import org.jbox2d.common.*;
+import org.jbox2d.dynamics.*;
+import org.jbox2d.dynamics.contacts.*;
+
+// A reference to our box2d world
+Box2DProcessing box2d;
 
 Image image;
 User user;
@@ -6,7 +17,15 @@ Lazor[] lazors= new Lazor[300];
 
 void setup() {
   size(878, 482);
-  image= new Image(0,0);
+  
+  // Initialize box2d physics and create the world
+  box2d = new Box2DProcessing(this);
+  box2d.createWorld();
+
+  // Turn on collision listening!
+  box2d.listenForCollisions();
+  
+  image= new Image(0,0);  //so it starts at 0,0 pixels
   user=new User(50,300);
   lazor=new Lazor(900,40,5);
  for (int i=0;i<300;i++)
@@ -17,6 +36,9 @@ void setup() {
 
 void draw() {
   //background(bg);
+  
+  // We must always step through time!
+  box2d.step();
   
   image.display();
   image.move();
@@ -30,5 +52,30 @@ void draw() {
   {
     lazors[i].display();
     lazors[i].shoot();
+  }
+}
+
+// Collision event functions!
+void beginContact(Contact cp)
+{
+  // Get both shapes
+  Fixture f1 = cp.getFixtureA();
+  Fixture f2 = cp.getFixtureB();
+  // Get both bodies
+  Body b1 = f1.getBody();
+  Body b2 = f2.getBody();
+
+  // Get our objects that reference these bodies
+  Object o1 = b1.getUserData();
+  Object o2 = b2.getUserData();
+
+  if (o1.getClass() == User.class && o2.getClass() == Lazor.class) {
+    Lazor p1 = (Lazor) o1;
+    lazor.delete();
+  }
+
+  if (o1.getClass() == Lazor.class) {
+    Lazor p = (Lazor) o2;
+    p.change();
   }
 }
