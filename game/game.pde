@@ -70,12 +70,16 @@ void beginContact(Contact cp)
   Object o2 = b2.getUserData();
 
   if (o1.getClass() == User.class && o2.getClass() == Lazor.class) {
-    Lazor p1 = (Lazor) o1;
-    lazor.delete();
+    Lazor p2 = (Lazor) o2;
+    p2.delete();
   }
 
   if (o1.getClass() == Lazor.class) {
     Lazor p = (Lazor) o2;
     p.change();
   }
+}
+
+// Objects stop touching each other
+void endContact(Contact cp) {
 }

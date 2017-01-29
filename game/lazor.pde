@@ -3,7 +3,7 @@ class Lazor
   // We need to keep track of a Body
   Body body;
   
-  PImage ex1,ex2,ex3;
+  //PImage ex1,ex2,ex3;
   float x;
   float speed;
   float y;
@@ -16,9 +16,9 @@ class Lazor
    this.y=y1;
    this.speed=speed;
    
-    ex1 = loadImage("explode1.JPG");
-    ex2= loadImage("exlode2.JPG");
-    ex3= loadImage("explod3.JPG");
+    //ex1 = loadImage("explode1.JPG");
+    //ex2= loadImage("exlode2.JPG");
+    //ex3= loadImage("explod3.JPG");
     // This function puts the particle in the Box2d world
     makeBody(x1, y1);
     body.setUserData(this);  //bullet part of the body
@@ -26,10 +26,13 @@ class Lazor
  
  void display()
  {
+   // We look at each body and get its screen position
+    Vec2 pos = box2d.getBodyPixelCoord(body);
+    
    stroke(#14D836);
    strokeWeight(2);
    
-   rect(x, y, 70, 5, 7);
+   rect( x, y, 70, 5, 7);
    
  }
  void shoot()
@@ -48,9 +51,9 @@ class Lazor
   // Change color when hit
   void change(){
     //exploding images here
-    image(ex1,x,y);
-    image(ex2,x,y);
-    image(ex3,x,y);
+    //image(ex1,x,y);
+    //image(ex2,x,y);
+    //image(ex3,x,y);
   }
 
   // Is the bullet ready for deletion?
@@ -58,14 +61,14 @@ class Lazor
     // Let's find the screen position of the lazor
     Vec2 pos = box2d.getBodyPixelCoord(body);
     
-    if ( delete) {
+    if ( pos.x > width || delete) {
       killBody();
       return true;
     }
     return false;
   }
   // Here's our function that adds the bullet to the Box2D world
-  void makeBody(float x1, float y1) {
+  void makeBody(float x, float y) {
     // Define a body
     BodyDef bd = new BodyDef();
     // Set its position
