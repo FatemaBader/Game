@@ -62,6 +62,7 @@ void draw() {
   }
   clock.time();
   health.display();
+  health.bar();
 }
 
 // Collision event functions!

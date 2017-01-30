@@ -18,8 +18,18 @@ class Health
     
     stroke(0);
     strokeWeight(1);
-    rect(hposx+2,hposy+2,145,15);
+    rect(hposx+2,hposy+5,145,15);
     
+    stroke(0);
+    strokeWeight(1);
+    rect(hposx,hposy,150,20);
+    
+  }
+  
+  void bar()
+  {
+    fill(#0BD824);
+    rect(hposx+2,hposy+2,145,15);
     
   }
 
