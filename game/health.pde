@@ -16,6 +16,11 @@ class Health
     fill(#AAAFB9);
     rect(hposx,hposy,150,20);
     
+    stroke(0);
+    strokeWeight(1);
+    rect(hposx+2,hposy+2,145,15);
+    
+    
   }
 
   
