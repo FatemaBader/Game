@@ -12,6 +12,7 @@ PFont font1;
 Box2DProcessing box2d;
 
 Clock clock;
+Health health;
 Image image;
 User user;
 Lazor lazor;
@@ -28,6 +29,7 @@ void setup() {
   box2d.listenForCollisions();
   
   clock=new Clock(15,30);
+  health=new Health(720,10);
   image= new Image(0,0);  //so it starts at 0,0 pixels
   user=new User(50,300);
   lazor=new Lazor(900,40,5);
@@ -59,6 +61,7 @@ void draw() {
     lazors[i].shoot();
   }
   clock.time();
+  health.display();
 }
 
 // Collision event functions!
