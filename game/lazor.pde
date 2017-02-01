@@ -29,10 +29,14 @@ class Lazor
    // We look at each body and get its screen position
     Vec2 pos = box2d.getBodyPixelCoord(body);
     
+    pos = box2d.getBodyPixelCoord(body);
+   pushMatrix();
+   translate(pos.x, pos.y);
    stroke(#14D836);
    strokeWeight(2);
    
    rect( x, y, 70, 5, 7);
+   popMatrix();
    
  }
  void shoot()
@@ -61,7 +65,7 @@ class Lazor
     // Let's find the screen position of the lazor
     Vec2 pos = box2d.getBodyPixelCoord(body);
     
-    if ( pos.x > width || delete) {
+    if ( delete) {
       killBody();
       return true;
     }

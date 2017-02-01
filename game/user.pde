@@ -2,27 +2,32 @@ class User
 {
   Body b;
   
+  Vec2 pos;
+  
   PImage craft;
-  float imgx;
-  float imgy;
+  float x,y;
+  float imgw;
+  float imgh;
   
  User(float x,float y)
  {
-   this.imgx=x;
-   this.imgy=y;
-    craft = loadImage("user.gif");
+   craft = loadImage("user.gif");
+   this.x = x;
+   this.y = y;
+   this.imgw = craft.width;
+   this.imgh = craft.height;
     
     // Define the polygon
     PolygonShape sd = new PolygonShape();
     // Figure out the box2d coordinates
-    float box2dW = box2d.scalarPixelsToWorld(x);
-    float box2dH = box2d.scalarPixelsToWorld(y);
+    float box2dW = box2d.scalarPixelsToWorld(imgw/2);
+    float box2dH = box2d.scalarPixelsToWorld(imgh/2);
     // We're just a box
     sd.setAsBox(box2dW, box2dH);
     
     // Create the body
     BodyDef bd = new BodyDef();
-    bd.type = BodyType.STATIC;
+    bd.type = BodyType.DYNAMIC;
     bd.position.set(box2d.coordPixelsToWorld(x,y));
     b = box2d.createBody(bd);
     
@@ -34,41 +39,31 @@ class User
  
  void display()
  {
-   image(craft,imgx,imgy);
+   pos = box2d.getBodyPixelCoord(b);
+   pushMatrix();
+   translate(pos.x, pos.y);
+   //rect(0,0, imgw, imgh);
+   image(craft,0,0);
+   popMatrix();
  }
- void keyPressed()
+ 
+ void update()
+ {
+   if (keyPressed)
    {
      if (keyCode == UP)
      {
-       imgy--;
-       if (imgy<0)
-       {
-         imgy=0;
-       }
+       b.setLinearVelocity(new Vec2(0, 10));
      }
-     if (keyCode == DOWN)
+     else if (keyCode == DOWN)
      {
-       imgy++;
-       if (imgy>435)
-       {
-         imgy=434;
-       }
+       b.setLinearVelocity(new Vec2(0, -10));
      }
-     if (keyCode == LEFT)
-     {
-       imgx--;
-       if (imgx<0)
-       {
-         imgx=0;
-       }
-     }
-     if (keyCode == RIGHT)
-     {
-       imgx++;
-       if (imgx==785)
-       {
-         imgx=784;
-       }
-     }
-    }
+   }
+   else
+   {
+     b.setLinearVelocity(new Vec2(0, 0));
+   }
+
+ }
 }
