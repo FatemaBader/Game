@@ -48,7 +48,25 @@ class Health
         rect(hposx+2,hposy+2,130,15);
         fill(255);
   }
-
+void update2()
+  {
+    stroke(#AAAFB9);
+    fill(#AAAFB9);
+    rect(hposx,hposy,150,20);
+    
+    stroke(0);
+    strokeWeight(1);
+    rect(hposx+2,hposy+5,145,15);
+    
+    stroke(0);
+    strokeWeight(1);
+    rect(hposx,hposy,150,20);
+    
+    //bar
+        fill(#757C1F); //cacky green
+        rect(hposx+2,hposy+2,115,15);
+        fill(255);
+  }
   
 
   

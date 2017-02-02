@@ -13,6 +13,7 @@ PFont font1;
 Box2DProcessing box2d;
 
 boolean barchange1=false;
+boolean barchange2=false;
 Clock clock;
 Health health;
 Image image;
@@ -111,6 +112,10 @@ void draw() {
   {
     health.update();
   }
+  if (barchange2==true)
+  {
+    health.update2();
+  }
   //health.bar();
 }
 
@@ -148,8 +153,13 @@ void beginContact(Contact cp)
     health.update();
     //p.change();
   }
+  if (o1.getClass() == User.class) {
+    //barchange2=true;
+    //health.update2();
+  }
 }
 
+  
 // Objects stop touching each other
 void endContact(Contact cp) {
 }
