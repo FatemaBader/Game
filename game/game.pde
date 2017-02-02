@@ -40,11 +40,12 @@ void setup() {
   
     // Create the empty list
   lazors = new ArrayList<Lazor>();
-  /*
- for (int i=0;i<300;i++)
+  
+ /*for (int i=0;i<lazors.size();i++)
  {
+   lazors.add(new Lazor(random(900,30000),random(10,400), 5 ));
    //lazors[i]=new Lazor(random(900,30000),random(10,400), 5 );
-   lazors = new ArrayList<Lazor>();
+   //lazors = new ArrayList<Lazor>();
  }*/
 }
 
@@ -64,9 +65,15 @@ void draw() {
   user.update();
   //user.keyPressed();
   
-  lazor.display();
-  lazor.shoot();
+  //lazor.display();
+  //lazor.shoot();
   
+  if (frameCount % 60 == 0)
+ {
+   lazors.add(new Lazor(random(900,width+100),random(10,400), 5 ));
+   //lazors[i]=new Lazor(random(900,30000),random(10,400), 5 );
+   //lazors = new ArrayList<Lazor>();
+ }
     /*for (int i=0;i<300;i++)
   {
     lazors[i].display();
@@ -75,19 +82,24 @@ void draw() {
       lazors[i].killBody();
     }
   }*/
-  if (random(1) > .1) {
+  //if (random(1) > .5) 
+  /*for (int i=0; i<lazors.size(); i++){
     lazors.add(new Lazor(random(900,30000),random(10,400), 5 ));
-  }
+  }*/
   
   // Look at all particles
   for (int i = lazors.size()-1; i >= 0; i--) {
     Lazor p = lazors.get(i);
     p.display();
+    p.shoot();
+    
+    if (p.pos.x+70 < 0)
+    {
+      p.killBody();
+      lazors.remove(p);
+    }
     // Particles that leave the screen, we delete them
     // (note they have to be deleted from both the box2d world and our list
-    if (p.done()) {
-      lazors.remove(i);
-    }
   }
 
      
@@ -112,14 +124,22 @@ void beginContact(Contact cp)
 
   if (o1.getClass() == User.class && o2.getClass() == Lazor.class) {
     Lazor p2 = (Lazor) o2;
-    p2.delete();
+    //p2.delete();
+    lazors.remove(p2);
+    p2.killBody();
+  }
+  else if (o1.getClass() == Lazor.class && o2.getClass() == User.class) 
+  {
+    Lazor p2 = (Lazor) o1;
+    //p2.delete();
+    lazors.remove(p2);
     p2.killBody();
   }
 
-  if (o1.getClass() == User.class) {
+  /*if (o1.getClass() == User.class) {
     Lazor p = (Lazor) o2;
-    p.change();
-  }
+    //p.change();
+  }*/
 }
 
 // Objects stop touching each other

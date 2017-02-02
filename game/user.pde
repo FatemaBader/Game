@@ -59,6 +59,14 @@ class User
      {
        b.setLinearVelocity(new Vec2(0, -10));
      }
+     if (keyCode == RIGHT)
+     {
+       b.setLinearVelocity(new Vec2(10, 0));
+     }
+     else if (keyCode == LEFT)
+     {
+       b.setLinearVelocity(new Vec2(-10, 0));
+     }
    }
    else
    {
