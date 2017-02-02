@@ -12,6 +12,7 @@ PFont font1;
 // A reference to our box2d world
 Box2DProcessing box2d;
 
+boolean barchange1=false;
 Clock clock;
 Health health;
 Image image;
@@ -88,7 +89,8 @@ void draw() {
   }*/
   
   // Look at all particles
-  for (int i = lazors.size()-1; i >= 0; i--) {
+  for (int i = lazors.size()-1; i >= 0; i--) 
+  {
     Lazor p = lazors.get(i);
     p.display();
     p.shoot();
@@ -98,14 +100,18 @@ void draw() {
       p.killBody();
       lazors.remove(p);
     }
-    // Particles that leave the screen, we delete them
-    // (note they have to be deleted from both the box2d world and our list
   }
-
      
   clock.time();
-  health.display();
-  health.bar();
+  if( barchange1 == false )
+  {
+    health.display();
+  }
+  else 
+  {
+    health.update();
+  }
+  //health.bar();
 }
 
 // Collision event functions!
@@ -136,10 +142,12 @@ void beginContact(Contact cp)
     p2.killBody();
   }
 
-  /*if (o1.getClass() == User.class) {
-    Lazor p = (Lazor) o2;
+  if (o1.getClass() == User.class) {
+    
+    barchange1=true;
+    health.update();
     //p.change();
-  }*/
+  }
 }
 
 // Objects stop touching each other
