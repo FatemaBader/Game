@@ -8,6 +8,9 @@ import org.jbox2d.common.*;
 import org.jbox2d.dynamics.*;
 import org.jbox2d.dynamics.contacts.*;
 
+boolean stop=false;
+int fscore;
+
 PImage img;
 PFont font1;
 // A reference to our box2d world
@@ -146,6 +149,11 @@ void draw() {
   {
     background(0);
     image(img, 230, 20);
+    stop=true;
+    fill(#FFF812);
+    textSize(60);
+    text("YOUR SCORE: ", 260,320);
+    text(fscore, 550,320);
   }
 }
 
