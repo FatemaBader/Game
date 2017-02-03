@@ -17,6 +17,7 @@ boolean barchange1=false;
 boolean barchange2=false;
 boolean barchange3=false;
 boolean barchange4=false;
+boolean barchange5=false;
 Clock clock;
 Health health;
 Image image;
@@ -128,6 +129,10 @@ void draw() {
   {
     health.update4();
   }
+  if (barchange5==true)
+  {
+    health.update5();
+  }
   
   //health.bar();
 }
@@ -151,10 +156,16 @@ void beginContact(Contact cp)
     //p2.delete();
     lazors.remove(p2);
     p2.killBody();
+    if (count==5)
+    {
+      barchange5=true;
+      health.update5();
+    }
     if (count==4)
     {
       barchange4=true;
       health.update4();
+      count++;
     }
     if (count==3)
     {
@@ -181,10 +192,16 @@ void beginContact(Contact cp)
     //p2.delete();
     lazors.remove(p2);
     p2.killBody();
+    if (count==5)
+    {
+      barchange5=true;
+      health.update5();
+    }
     if (count==4)
     {
       barchange4=true;
       health.update4();
+      count++;
     }
     if (count==3)
     {
