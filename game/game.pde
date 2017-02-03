@@ -15,6 +15,7 @@ Box2DProcessing box2d;
 int count=1;
 boolean barchange1=false;
 boolean barchange2=false;
+boolean barchange3=false;
 Clock clock;
 Health health;
 Image image;
@@ -109,14 +110,20 @@ void draw() {
   {
     health.display();
   }
-  else 
+  else
   {
     health.update();
   }
+  
   if (barchange2==true)
   {
     health.update2();
   }
+  if (barchange3==true)
+  {
+    health.update3();
+  }
+  
   //health.bar();
 }
 
@@ -139,10 +146,16 @@ void beginContact(Contact cp)
     //p2.delete();
     lazors.remove(p2);
     p2.killBody();
+    if (count==3)
+    {
+      barchange3=true;
+      health.update3();
+    }
         if (count==2)
     {
       barchange2=true;
       health.update2();
+      count++;
     }
         if (count==1)
     {
@@ -157,10 +170,16 @@ void beginContact(Contact cp)
     //p2.delete();
     lazors.remove(p2);
     p2.killBody();
-        if (count==2)
+    if (count==3)
+    {
+      barchange3=true;
+      health.update3();
+    }
+    if (count==2)
     {
       barchange2=true;
       health.update2();
+      count++;
     }
     if (count==1)
     {
