@@ -12,6 +12,7 @@ PFont font1;
 // A reference to our box2d world
 Box2DProcessing box2d;
 
+int count=1;
 boolean barchange1=false;
 boolean barchange2=false;
 Clock clock;
@@ -138,6 +139,17 @@ void beginContact(Contact cp)
     //p2.delete();
     lazors.remove(p2);
     p2.killBody();
+        if (count==2)
+    {
+      barchange2=true;
+      health.update2();
+    }
+        if (count==1)
+    {
+      barchange1=true;
+      health.update();
+      count++;
+    }
   }
   else if (o1.getClass() == Lazor.class && o2.getClass() == User.class) 
   {
@@ -145,18 +157,25 @@ void beginContact(Contact cp)
     //p2.delete();
     lazors.remove(p2);
     p2.killBody();
+        if (count==2)
+    {
+      barchange2=true;
+      health.update2();
+    }
+    if (count==1)
+    {
+      barchange1=true;
+      health.update();
+      count++;
+    }
   }
 
-  if (o1.getClass() == User.class) {
+  //if (o1.getClass() == User.class) {
     
-    barchange1=true;
-    health.update();
+    
     //p.change();
-  }
-  if (o1.getClass() == User.class) {
-    //barchange2=true;
-    //health.update2();
-  }
+  //}
+  
 }
 
   
