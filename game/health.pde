@@ -43,10 +43,16 @@ class Health
     strokeWeight(1);
     rect(hposx,hposy,150,20);
     
+    //inner grey bar that doesnt change
+    fill(#AAAFB9);
+    stroke(0);
+    strokeWeight(1);
+    rect(hposx+2,hposy+2,145,15);
     //bar
         fill(#2B9822); //dark green
         rect(hposx+2,hposy+2,130,15);
         fill(255);
+    
   }
 void update2()
   {
