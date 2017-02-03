@@ -116,6 +116,11 @@ void update2()
     strokeWeight(1);
     rect(hposx,hposy,150,20);
     
+    //inner grey bar that doesnt change
+    fill(#AAAFB9);
+    stroke(0);
+    strokeWeight(1);
+    rect(hposx+2,hposy+2,145,15);
     //bar
         fill(#CB1020); // Bright red
         rect(hposx+2,hposy+2,65,15);
