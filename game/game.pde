@@ -140,6 +140,10 @@ void draw() {
   }
   
   //health.bar();
+  if (count ==7)
+  {
+    background(0);
+  }
 }
 
 // Collision event functions!
