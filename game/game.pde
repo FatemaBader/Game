@@ -8,6 +8,7 @@ import org.jbox2d.common.*;
 import org.jbox2d.dynamics.*;
 import org.jbox2d.dynamics.contacts.*;
 
+PImage img;
 PFont font1;
 // A reference to our box2d world
 Box2DProcessing box2d;
@@ -48,6 +49,7 @@ void setup() {
     // Create the empty list
   lazors = new ArrayList<Lazor>();
   
+  img = loadImage("Gameover.JPG");
  /*for (int i=0;i<lazors.size();i++)
  {
    lazors.add(new Lazor(random(900,30000),random(10,400), 5 ));
@@ -143,6 +145,7 @@ void draw() {
   if (count ==7)
   {
     background(0);
+    image(img, 230, 20);
   }
 }
 
