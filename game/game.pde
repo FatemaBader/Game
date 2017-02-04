@@ -66,7 +66,7 @@ void draw() {
   user.display();
   user.update();
   
-  if (frameCount % 60 == 0)
+  if (frameCount % 25 == 0)
  {
    lazors.add(new Lazor(random(900,width+100),random(10,400), 5 ));
  }

@@ -26,7 +26,6 @@ class Clock
    {
      fscore=clockcount;
    }
-
     
   }
   
