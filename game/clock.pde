@@ -10,7 +10,7 @@ class Clock
     this.cposx=x;
     this.cposy=y;
     this.clockcount = 0;
-  control = loadImage("controls.JPG");
+  control = loadImage("controls.png");
   }
   
   void time()
