@@ -40,8 +40,11 @@ class User
  void display()
  {
    pos = box2d.getBodyPixelCoord(b);
+   //float a = b.getAngle();
+    
    pushMatrix();
    translate(pos.x, pos.y);
+   //rotate(-a);
    //rect(0,0, imgw, imgh);
    image(craft,0,0);
    popMatrix();
@@ -54,10 +57,13 @@ class User
      if (keyCode == UP)
      {
        b.setLinearVelocity(new Vec2(0, 10));
+       //b.setAngularVelocity(1);
+    
      }
      else if (keyCode == DOWN)
      {
        b.setLinearVelocity(new Vec2(0, -10));
+       //b.setAngularVelocity(-1);
      }
      if (keyCode == RIGHT)
      {

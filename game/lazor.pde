@@ -39,7 +39,7 @@ class Lazor
   }
   void shoot()
   {
-    body.setLinearVelocity(new Vec2(-20, 0));
+    body.setLinearVelocity(new Vec2(-50, 0));
   }
 
   // This function removes the particle from the box2d world
