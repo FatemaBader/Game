@@ -34,6 +34,7 @@ float userx=50, usery=300;
 
 void setup() {
   size(878, 482);
+  
   font1= loadFont("AgencyFB-Bold-48.vlw");
   // Initialize box2d physics and create the world
   box2d = new Box2DProcessing(this);
@@ -66,9 +67,11 @@ void draw() {
   user.display();
   user.update();
   
-  if (frameCount % 25 == 0)
+  
+  if (frameCount % 20 == 0)
  {
-   lazors.add(new Lazor(random(900,width+100),random(10,400), 5 ));
+   
+   lazors.add(new Lazor(random(1400,5000),random(10,400), 5 ));
  }
   
   // Look at all particles
@@ -85,7 +88,7 @@ void draw() {
     }
   }
      
-  clock.time();
+  
   if( barchange1 == false )
   {
     health.display();
@@ -115,7 +118,7 @@ void draw() {
   {
     health.update6();
   }
-  
+  clock.time();
   //health.bar();
   if (count ==7)
   {

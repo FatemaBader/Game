@@ -56,22 +56,22 @@ class User
    {
      if (keyCode == UP)
      {
-       b.setLinearVelocity(new Vec2(0, 10));
+       b.setLinearVelocity(new Vec2(0, 15));
        //b.setAngularVelocity(1);
     
      }
      else if (keyCode == DOWN)
      {
-       b.setLinearVelocity(new Vec2(0, -10));
+       b.setLinearVelocity(new Vec2(0, -15));
        //b.setAngularVelocity(-1);
      }
      if (keyCode == RIGHT)
      {
-       b.setLinearVelocity(new Vec2(10, 0));
+       b.setLinearVelocity(new Vec2(15, 0));
      }
      else if (keyCode == LEFT)
      {
-       b.setLinearVelocity(new Vec2(-10, 0));
+       b.setLinearVelocity(new Vec2(-15, 0));
      }
    }
    else

@@ -3,20 +3,23 @@ class Clock
   float cposx;
   float cposy;
   int clockcount;
+ PImage control;
   
   Clock(float x,float y)
   {
     this.cposx=x;
     this.cposy=y;
     this.clockcount = 0;
+  control = loadImage("controls.JPG");
   }
   
   void time()
   {
+    //show image
     
-    
-    textSize(30);
-    fill(255);
+    textSize(35);
+    fill(#F02727);
+    stroke(0);
     text(clockcount, cposx, cposy);
     if(stop==false)
     {
@@ -26,7 +29,11 @@ class Clock
    {
      fscore=clockcount;
    }
-    
+     //if clockcount reaches 200 stop showing image
+    if (clockcount<200)
+    {
+      image(control, 280, 120);
+    }
   }
   
 }
