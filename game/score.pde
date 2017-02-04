@@ -16,8 +16,8 @@ class Score
     textSize(60);
     text("YOUR SCORE: ", xpos,ypos);
     
-    text(fscore, xpos,ypos);
-    text("THANKS FOR PLAYING",xpos,ypos+20);
+    text(fscore, xpos+300,ypos);
+    text("THANKS FOR PLAYING",xpos,ypos+70);
     ypos--;
     }
 }
