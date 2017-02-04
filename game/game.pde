@@ -7,6 +7,7 @@ import org.jbox2d.common.*;
 import org.jbox2d.dynamics.*;
 import org.jbox2d.dynamics.contacts.*;
 
+float changecount=0;
 boolean stop=false;
 int fscore;
 
@@ -153,7 +154,9 @@ void beginContact(Contact cp)
     Lazor p2 = (Lazor) o2;
     //p2.delete();
     lazors.remove(p2);
+    //p2.change();
     p2.killBody();
+    p2.change();
     if (count==6)
     {
       barchange6=true;
@@ -196,7 +199,9 @@ void beginContact(Contact cp)
     Lazor p2 = (Lazor) o1;
     //p2.delete();
     lazors.remove(p2);
+    //p2.change();
     p2.killBody();
+    p2.change();
     if (count==6)
     {
       barchange6=true;
@@ -233,6 +238,16 @@ void beginContact(Contact cp)
       health.update();
       count++;
     }
+  }
+  if (o1.getClass() == User.class) {
+    Lazor p = (Lazor) o2;
+   changecount=0;
+    p.change();
+  }
+  if (o2.getClass() == User.class) {
+    Lazor p = (Lazor) o1;
+     changecount=0;
+    p.change();
   }
   
 }

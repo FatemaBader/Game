@@ -4,10 +4,12 @@ class Lazor
   Body body;
 
   Vec2 pos;
-  //PImage ex1,ex2,ex3;
+             PImage ex1;
+  //ex2,ex3;
   float x;
   float speed;
   float y;
+  float changecount;
 
   boolean delete = false;
 
@@ -17,7 +19,7 @@ class Lazor
     this.y=y1;
     this.speed=speed;
 
-    //ex1 = loadImage("explode1.JPG");
+                ex1 = loadImage("controls.png");
     //ex2= loadImage("exlode2.JPG");
     //ex3= loadImage("explod3.JPG");
     // This function puts the particle in the Box2d world
@@ -57,7 +59,11 @@ class Lazor
   // Change color when hit
   void change() {
     //exploding images here
-    //image(ex1,x,y);
+    if(changecount>30)
+    {
+                            image(ex1,x,y);
+    }
+    changecount++;
     //image(ex2,x,y);
     //image(ex3,x,y);
   }
