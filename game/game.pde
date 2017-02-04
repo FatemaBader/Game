@@ -28,7 +28,6 @@ Health health;
 Image image;
 User user;
 Lazor lazor;
-//Lazor[] lazors= new Lazor[300];
 ArrayList<Lazor> lazors;
 
 float userx=50, usery=300;
@@ -53,51 +52,24 @@ void setup() {
   lazors = new ArrayList<Lazor>();
   
   img = loadImage("Gameover.JPG");
- /*for (int i=0;i<lazors.size();i++)
- {
-   lazors.add(new Lazor(random(900,30000),random(10,400), 5 ));
-   //lazors[i]=new Lazor(random(900,30000),random(10,400), 5 );
-   //lazors = new ArrayList<Lazor>();
- }*/
 }
 
 void draw() {
-  //background(bg);
   textFont(font1, 30);
   fill(255);
   // We must always step through time!
   box2d.step();
-  
-  //if( lazors[i].display() == user.display() )
   
   image.display();
   image.move();
   
   user.display();
   user.update();
-  //user.keyPressed();
-  
-  //lazor.display();
-  //lazor.shoot();
   
   if (frameCount % 60 == 0)
  {
    lazors.add(new Lazor(random(900,width+100),random(10,400), 5 ));
-   //lazors[i]=new Lazor(random(900,30000),random(10,400), 5 );
-   //lazors = new ArrayList<Lazor>();
  }
-    /*for (int i=0;i<300;i++)
-  {
-    lazors[i].display();
-    lazors[i].shoot();
-    if (lazors[i].done()) {
-      lazors[i].killBody();
-    }
-  }*/
-  //if (random(1) > .5) 
-  /*for (int i=0; i<lazors.size(); i++){
-    lazors.add(new Lazor(random(900,30000),random(10,400), 5 ));
-  }*/
   
   // Look at all particles
   for (int i = lazors.size()-1; i >= 0; i--) 
@@ -256,12 +228,6 @@ void beginContact(Contact cp)
       count++;
     }
   }
-
-  //if (o1.getClass() == User.class) {
-    
-    
-    //p.change();
-  //}
   
 }
 
