@@ -4,6 +4,8 @@ class Clock
   float cposy;
   int clockcount;
  PImage control;
+ PImage control2;
+ 
   
   Clock(float x,float y)
   {
@@ -11,6 +13,7 @@ class Clock
     this.cposy=y;
     this.clockcount = 0;
   control = loadImage("controls.png");
+  control2 = loadImage("controls2.png");
   }
   
   void time()
@@ -32,7 +35,8 @@ class Clock
      //if clockcount reaches 200 stop showing image
     if (clockcount<200)
     {
-      image(control, 280, 120);
+      image(control, 110, 90);
+      image(control2, 430, 95);
     }
   }
   
