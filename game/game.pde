@@ -27,6 +27,7 @@ Health health;
 Image image;
 User user;
 Lazor lazor;
+Score score;
 ArrayList<Lazor> lazors;
 
 float userx=50, usery=300;
@@ -46,6 +47,7 @@ void setup() {
   health=new Health(720,10);
   image= new Image(0,0);  //so it starts at 0,0 pixels
   user=new User(userx,usery); //userx=50 usery=300
+  score=new Score(260,height);
   lazor=new Lazor(900,40,5); 
   
     // Create the empty list
@@ -124,10 +126,12 @@ void draw() {
     background(0);
     image(img, 230, 20);
     stop=true;
-    fill(#FFF812);
-    textSize(60);
-    text("YOUR SCORE: ", 260,320);
-    text(fscore, 550,320);
+    
+    score.goUp();
+    //textSize(60);
+    //text("YOUR SCORE: ", 260,320);
+    //text("THANKS FOR PLAYING",260,390);
+    //text(fscore, 550,320);
   }
 }
 
