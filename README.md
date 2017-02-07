@@ -25,5 +25,5 @@ The UI has three features.
 
 # Functionality 
 
-* Box2D
-  * I used a library that would help enable the bodies to undego change after a collision.  
+
+  * I used a library * Box2D that would help enable the bodies to undego change after a collision. The concept behind it is that each body would have something attached to it, be it an image or even a rectangle, to create a fixture. It's the fixture we deal with when wanting something to dispapear after 2 fixtures come in contact. In my case, the bullet would delete from the arraylist and health bar change colour and change shape (gets smaller) should a collision occur.
