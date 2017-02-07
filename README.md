@@ -16,3 +16,7 @@ The UI has three features.
   * Shows users current Health status
 * Timer
   * Shows users current score
+
+#Controls
+
+* Arrow keys to navigate
