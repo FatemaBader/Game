@@ -1,13 +1,13 @@
 # Game
-A Game made using Processing 
+A Game made in Processing using physics. 
 
 #YouTube Video
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/gAreBmFYWQQ/0.jpg)](https://www.youtube.com/watch?v=gAreBmFYWQQ)
 
-#Concept
+# Concept
 My game is based off the shooting game in StarWars. The player is the pilot and must use arrow keys to navigate, to dodge randomly generated shooting bullets. Each time the pilot gets shot the health bar quickly changes colour and decreases. The timer is set as soon as the game has started.
 
-#Controls
+# Controls
 
 * Arrow keys to navigate
 
@@ -23,3 +23,7 @@ The UI has three features.
 * End Page
   * Displays users final score
 
+# Functionality 
+
+* Box2D
+  * I used a library that would help enable the bodies to undego change after a collision.  
